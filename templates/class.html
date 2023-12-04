@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ _class['name'] }}{% endblock title %}
+
+{% block content %}
+    <div class="content-area">
+        <p class="heading">{{ _class['name'] }}</p>
+        <div class="list">
+            <a href="" class="item">Assignments</a>
+            <a href="" class="item">Announcements</a>
+        </div>
+        <p class="heading-2">Assignments</p>
+        <p class="text">Assignments in this class</p>
+        <div class="list">
+            {% for assignment in assignments %}
+            <a href="{{ url_for('assignment_view', id=assignment['id']) }}" class="item">{{ assignment['name'] }}</a>
+            {% endfor %}
+            <a href="{{ url_for('add_assignment', class_id=_class['id']) }}" class="item">+</a>
+        </div>
+    </div>
+{% endblock content %}

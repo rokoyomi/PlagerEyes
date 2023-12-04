@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-area">
+    <h1 class="heading capitalize">Create Assignment</h1>
+    <p class="text alert">{{ get_flashed_messages()[0] }}</p>
+    <form action="{{ post_addr }}" method="post" class="text capitalize flex-area flex-vertical">
+        <div class="flex-area flex-wrap">
+            <label>
+                <span class="capitalize">Name</span>
+                <input type="text" name="name" value="{{ existing['name'] }}" placeholder="class ID" class="form-input">
+            </label>
+            <label>
+                <span class="capitalize">Due</span>
+                <input type="date" name="due" value="{{ existing['due'] }}" placeholder="class ID" class="form-input">
+            </label>
+            <label>
+                <span class="Capitalize">Status</span>
+                <select name="status" class="form-input">
+                    <option value="o">Open</option>
+                    <option value="c">Closed</option>
+                </select>
+            </label>
+            <label>
+                <span class="Capitalize">Class</span>
+                <select name="class-id" class="form-input">
+                    {% for class in classes %}
+                    <option value="{{ class['id'] }}" {% if existing and existing['class_id'] and existing['class_id']|int == class['id'] %}selected{% endif %}>{{ class['name'] }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <label>
+            <span class="capitalize">Description</span>
+            <textarea name="description" cols="100" rows="10" class="form-input">{{ existing['description'] }}</textarea>
+        </label>
+        <p class="list">
+            <input type="submit" value="Add" class="item">
+        </p>
+    </form>
+</div>
+{% endblock content %}

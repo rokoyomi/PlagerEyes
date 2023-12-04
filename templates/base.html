@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %}{% endblock title %} - Plagereyes</title>
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="header-item">Plagereyes</a>
+        {% if hide_logout %}
+            <a href="{{ url_for('signup') }}" class="header-item">Signup</a>
+        {% else %}
+            <a href="{{ url_for('logout') }}" class="header-item">Logout</a>
+        {% endif %}
+    </div>
+
+    <div class="cover"></div>
+
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+
+    <div class="footer text">
+        <p class="text">20K-0137</p>
+        <p class="text">20K-0324</p>
+        <p class="text">20K-0327</p>
+        <p class="text">20K-0481</p>
+    </div>
+
+    {% block scripts %}{% endblock scripts %}
+</body>
+</html>

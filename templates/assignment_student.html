@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ assignment['name'] }}{% endblock title %}
+
+{% block content %}
+<div class="content-area">
+    <p class="heading">Assignment Details</p>
+    <p class="heading-2">{{ assignment['name'] }}</p>
+    <p class="text">{{ assignment['description'] }}</p>
+    <p class="text">Due: {{ assignment['due'] }}</p>
+    <p class="text">Status: {% if assignment['status'] == 'o' %}Open{% else %}Closed{% endif %}</p>
+    <p class="Capitalize heading-2">Upload</p>
+    <p class="text">You may submit your work in PDF format only</p>
+    <form action="{{ url_for('assignment_view', id=assignment['id']) }}" method="post" enctype = "multipart/form-data" class="text">
+        <label>
+            <!--<img src="https://www.pngall.com/wp-content/uploads/2/Upload-PNG-Image-File.png" alt="">-->
+            <input type="file" id="input-file" name="submission" required class="form-input">
+        </label>
+        {% for msg in get_flashed_messages() %}
+        <p class="text alert">{{ msg }}</p>
+        {% endfor %}
+        <input class="item" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock content %}

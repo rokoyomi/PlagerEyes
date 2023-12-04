@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <div class="content-area">
+        <p class="heading">Class Dashboard</p>
+        <p class="text">Classes you are participating in.</p>
+        
+        <div class="list">
+            {% for class in classes %}
+            <a href="{{ url_for('class_view', id=class['id']) }}" class="item">{{ class['name'] }}</a>
+            {% endfor %}
+            <a href="{{ url_for('add_class') }}" class="item">+</a>
+        </div>
+    </div>
+{% endblock content %}

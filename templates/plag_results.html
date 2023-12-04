@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Plag Results{% endblock title %}
+
+{% block content %}
+    <div class="content-area">
+        <h1 class="heading">Plag Results</h1>
+        <p class="text">The following pairs of documents have more than {{ x }}% plag</p>
+        {% for pair in pairs %}
+        <p class="text">
+            {{ pair[0]['student_id'] }} and {{ pair[1]['student_id'] }}
+        </p>
+        {% endfor %}
+    </div>
+{% endblock content %}

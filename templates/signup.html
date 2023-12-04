@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="content-area">
+    <h1 class="heading">Signup</h1>
+    <form action="{{ url_for('signup') }}" method="post" class="text capitalize flex-area flex-vertical">
+        <div class="flex-area flex-wrap flex-vertical">
+            <label>
+                <span class="capitalize">ID</span>
+                <input type="text" name="id" class="form-input" required>
+            </label>
+            <label>
+                <span class="capitalize">Username</span>
+                <input type="text" name="username" class="form-input" required>
+            </label>
+            <label>
+                <span class="capitalize">Password</span>
+                <input type="password" name="password" class="form-input" required>
+            </label>
+            <label>
+                <span>User Type</span>
+                <select name="role" class="form-input">
+                    <option value="s" selected>Student</option>
+                    <option value="t" selected>Teacher</option>
+                </select>
+            </label>
+            {% for msg in get_flashed_messages() %}
+            <p class="alert text">{{ msg }}</p>
+            {% endfor %}
+            <p class="list">
+                <input type="submit" value="Login" class="item">
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-area">
+    <h1 class="heading capitalize">Join Class</h1>
+    <p class="text alert">{{ get_flashed_messages()[0] }}</p>
+    <form action="{{ url_for('add_class') }}" method="post" class="text capitalize flex-area flex-vertical">
+        <div class="flex-area flex-wrap">
+            <label>
+                <span class="capitalize">Class ID:</span>
+                <input type="text" name="class-id" value="{{ existing['class-id'] }}" placeholder="class ID" class="form-input">
+            </label>
+        </div>
+        <p class="list">
+            <input type="submit" value="Add" class="item">
+        </p>
+    </form>
+</div>
+{% endblock content %}

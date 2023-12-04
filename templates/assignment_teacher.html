@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ assignment['name'] }}{% endblock title %}
+
+{% block content %}
+<div class="content-area">
+    <p class="heading">Assignment Details</p>
+    <div class="flex-area flex-align-center flex-justify-sp-bw">
+        <div>
+            <p class="heading-2">{{ assignment['name'] }}</p>
+        </div>
+        <a href="" class="item">Edit</a>
+    </div>
+    <p class="text">{{ assignment['description'] }}</p>
+    <p class="text">Due: {{ assignment['due'] }}</p>
+    <p class="text">Status: {% if assignment['status'] == 'o' %}Open{% else %}Closed{% endif %}</p>
+</div>
+
+<div class="content-area">
+    <p class="heading">Submissions</p>
+    <p class="heading-2">Student Submissions</p>
+    <p class="text">Current List of Submissions</p>
+    <div class="list">
+        {% for s in submissions %}
+        <a href="{{ url_for('download', a_id=s['assignment_id'], s_id=s['student_id'], ext=s['ext']) }}" class="item">
+            {{ s['student_id'] }}
+            </a>
+            {% endfor %}
+        </div>
+        
+        <p class="heading-2">Plagiarism Checking</p>
+        <p class="text">Run a Plagiarism check on all current submissions</p>
+        <form action="{{ url_for('plag_checker', assignment_id=assignment['id']) }}" method="post" enctype = "multipart/form-data" class="text">
+            <input class="item" type="submit" value="Check Plagiarism">
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,235 @@
+body {
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 2fr 2fr 2fr 0.5fr;
+    grid-template-areas: 
+        "header header  header  header  header  header"
+        "cover  cover   cover   cover   cover   cover"
+        "content content content content content content"
+        "footer footer  footer  footer  footer  footer"
+    ;
+    /*gap: 10px;*/
+
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background: url(../img/bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-size: medium;
+}
+.text {
+    color: white;
+    padding-left: 5px;
+    text-decoration: none;
+    margin: 5px 0px;
+}
+.heading {
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.7em;
+    margin: 5px 0px;
+    text-transform: capitalize;
+}
+.heading-2 {
+    color: white;
+    padding: 5px;
+    font-size: 1.5em;
+    margin: 5px 0px;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.heading-2:hover {
+    color: orangered;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(30, 30, 40);
+}
+
+.cover {
+    grid-area: cover;
+    height: 10vh;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 5px;
+    /*width: 100%;*/
+    /*min-height: 100vh;*/
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgb(30, 30, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /*width: 100%;*/
+    height: 10vh;
+}
+.footer .text {
+    padding: 5px;
+}
+.footer .text:hover {
+    cursor: pointer;
+    color: skyblue;
+}
+
+.header-item {
+    font-size: 1.7em;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+.header-item:hover {
+    color: orangered;
+    cursor: pointer;
+}
+
+.header .heading {
+    font-size: 1.9em;
+    margin: 0px;
+}
+
+.content-area {
+    padding-left: 5px;
+    background-color: rgb(50, 50, 60);
+    /*width: 100%;*/
+}
+
+.content-area .heading {
+    background-color: rgb(25, 166, 221);
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px 0px;
+}
+.item {
+    background-color: rgb(70, 70, 90);
+    border-radius: 0.2cm;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    margin: 5px;
+    border: none;
+}
+.item:hover {
+    background-color: orangered;
+    cursor: pointer ;
+}
+
+form label {
+    display: block;
+}
+
+form label span {
+    display: block;
+    padding: 5px;
+}
+
+.form-input {
+    padding: 5px;
+    background-color: rgb(50, 50, 60);
+    color: white;
+    border: thin solid white;
+    font-size: medium;
+}
+
+.flex-area {
+    display: flex;
+    gap: 5px;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-vertical {
+    flex-direction: column;
+}
+.flex-align-center {
+    align-items: center;
+}
+.flex-justify-sp-bw {
+    justify-content: space-between;
+}
+.highlightable:hover {
+    color: orangered;
+}
+.underlined {
+    text-decoration: underline;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.block {
+    display: inline-block;
+}
+.no-padding {
+    padding: 0;
+}
+
+input {
+    font-size: medium;
+}
+
+textarea {
+    font-size: medium;
+}
+
+.alert {
+    color: red;
+}
+
+.thumbnail {
+    background-color: rgb(70, 70, 90);
+    width: 250px;
+    height: 300px;
+    border-radius: 0.2cm;
+    cursor: pointer;
+}
+
+.file-upload-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.file-upload-btn {
+    display: inline-block;
+    background-color: orangered;
+    height: 50px;
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 0.2cm;
+    font-size: 1.5em;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    color: white;
+}
+
+.file-upload-btn input {
+    display: none;
+}

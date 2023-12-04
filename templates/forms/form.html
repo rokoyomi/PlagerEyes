@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-area">
+    <h1 class="heading">Add {{ table_name }}</h1>
+    <p class="text alert">{{ get_flashed_messages()[0] }}</p>
+    <form action="{{ post_addr }}" method="post" class="text capitalize flex-area flex-vertical">
+        <div class="flex-area flex-wrap">
+            {% for column in columns %}
+                {% if '_id' not in column and 'description' != column and 'id' != column %}
+                    <label>
+                        <span class="capitalize">{{ column.replace('_', ' ') }}:</span>
+                        <input type="text" name="{{ column }}" value="{{ existing[column] }}" placeholder="{{ column.replace('_', ' ') }}" class="form-input">
+                    </label>
+                {% endif %}
+            {% endfor %}
+            {% block child_controls %}{% endblock child_controls %}
+        </div>
+        {% if 'description' in columns %}
+            <label>
+                <span>Description:</span>
+                <textarea name="description" id="" cols="100" rows="10" class="form-input" placeholder="Description">{{ existing['description'] }}</textarea>
+                <!--<input type="text" name="description" id="">-->
+            </label>
+        {% endif %}
+        <p class="list">
+            <input type="submit" value="Add" class="item">
+        </p>
+    </form>
+</div>
+{% endblock content %}
